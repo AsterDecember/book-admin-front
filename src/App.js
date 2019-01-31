@@ -2,27 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'antd/dist/antd.css'
+import Routes from './Routes'
+import { Layout } from 'antd';
 
+const {
+  Header, Footer, Content,
+} = Layout;
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Layout>
+        <Header><h2 style={{ color: "white" }}>Industries App</h2></Header>
+        <Content style={{ display: "flex", justifyContent: "center" }}>
+          <Routes />
+        </Content>
+        <Footer>Code by Mike</Footer>
+      </Layout >
+    )
   }
 }
 

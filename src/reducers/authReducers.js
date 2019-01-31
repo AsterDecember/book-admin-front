@@ -3,7 +3,7 @@ import {
 } from "../actions/authActions";
 
 const authData = (state = {
-    app:{}
+    user:{}
 }, action) => {
     switch (action.type) {
         case FETCH_LOGIN_SAGA:
