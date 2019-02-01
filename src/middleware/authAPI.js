@@ -6,15 +6,14 @@ import axios from "axios";
 
 const host = 'http://localhost:3000/auth'
 
-export const signup = (user)=>{
-    return axios.post(`${host}/signup`,user,{})
+export const signup = (info)=>{
+    return axios.post(`${host}/signup`,info.payload)
         .then(r=> r.data)
         .catch(e=> e.response)
 }
 
-export const login = (user)=>{
-    console.log('middleware data:',user)
-    const {payload} = user
+export const login = (info)=>{
+    const {payload} = info
     console.log('middleware data 2:',payload)
     return axios.post(`${host}/login`,payload,{withCredentials:true})
         .then(r=> {
