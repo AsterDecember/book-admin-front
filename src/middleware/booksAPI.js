@@ -11,3 +11,9 @@ export const getBooksAPI = () => {
         .then(r => r)
         .catch(e => console.log(e))
 }
+
+export const createBooksAPI = (book) => {
+    return axios.post(`${host}`,book)
+        .then(r=>r)
+        .catch(e=>console.log(e))
+}

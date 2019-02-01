@@ -9,30 +9,25 @@ import {
 
 const { TextArea } = Input
 
-class RegistrationForm extends Component {
+class CreateBooks extends Component {
+
   state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
+    book: {}
+  }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-        this.props.createBooksSaga(values)
-      }
-    });
+    e.preventDefault()
+    console.log('ESTADO:',this.state.book)
+    this.props.createBooksSaga(this.state.book)
   }
-
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-
+  handleChange = (e)=>{
+    const {book} = this.state
+    const field = e.target.name
+    book[field] = e.target.value
+    this.setState({book})
+}
   render() {
-    const { getFieldDecorator } = this.props.form;
+    //const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
       labelCol: {
@@ -72,11 +67,10 @@ class RegistrationForm extends Component {
             </span>
           )}
         >
-          {getFieldDecorator('id', {
-            rules: [{ required: true, message: 'Porfavor ingresa el ID del libro!', whitespace: true }],
-          })(
-            <Input />
-          )}
+
+          <Input name="id" onChange={this.handleChange} />
+
+
         </Form.Item>
 
         <Form.Item
@@ -90,11 +84,8 @@ class RegistrationForm extends Component {
             </span>
           )}
         >
-          {getFieldDecorator('name', {
-            rules: [{ required: true, message: 'Porfavor ingresa el nombre del libro!', whitespace: true }],
-          })(
-            <Input />
-          )}
+
+          <Input name="name" onChange={this.handleChange}/>
         </Form.Item>
 
         <Form.Item
@@ -108,11 +99,8 @@ class RegistrationForm extends Component {
             </span>
           )}
         >
-          {getFieldDecorator('description', {
-            rules: [{ required: true, message: 'Porfavor ingresa la descripcion del libro!', whitespace: true }],
-          })(
-            <TextArea rows={4} />
-          )}
+
+          <TextArea name="description" rows={4} onChange={this.handleChange}/>
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>
@@ -123,10 +111,6 @@ class RegistrationForm extends Component {
     );
   }
 }
-
-
-
-
 
 //Set the main stage to props i need to use on this component
 const mapStateToProps = (state) => {
@@ -148,15 +132,4 @@ const mapDispatchToProps = (dispatch) => {
 
 };
 
-connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);
-//ReactDOM.render(<WrappedRegistrationForm />, mountNode);
-
-//const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
-export default function CreateBooks() {
-  const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistrationForm);
-  return (
-    <div>
-      <WrappedRegistrationForm />
-    </div>
-  )
-}
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBooks);
