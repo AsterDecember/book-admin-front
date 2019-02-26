@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createBooksSaga } from '../../actions/booksActions'
+import * as jsPDF from 'jspdf'
 
 import {
   Form, Input, Tooltip, Icon, Button
@@ -15,10 +16,18 @@ class CreateBooks extends Component {
     book: {}
   }
 
+  printForm = () =>{
+      //this works!!!
+      const pdf = new jsPDF();
+      pdf.text(10, 10, `You have to pay $`);
+      // save the PDF document (downloadable)
+      pdf.save();
+  }
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('ESTADO:',this.state.book)
     this.props.createBooksSaga(this.state.book)
+    this.printForm()
   }
   handleChange = (e)=>{
     const {book} = this.state
