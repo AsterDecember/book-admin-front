@@ -86,30 +86,58 @@ class CreateBooks extends Component {
           {...formItemLayout}
           label={(
             <span>
-              nombre&nbsp;
-                <Tooltip title="Ingresa el nombre del libro">
+              Titulo&nbsp;
+                <Tooltip title="Ingresa el Nombre del libro">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>
           )}
         >
 
-          <Input name="name" onChange={this.handleChange}/>
+          <Input name="title" onChange={this.handleChange}/>
         </Form.Item>
 
         <Form.Item
           {...formItemLayout}
           label={(
             <span>
-              descripcion&nbsp;
-                <Tooltip title="Ingresa la descripcion del libro">
+              Autor&nbsp;
+                <Tooltip title="Ingresa el nombre del Autor del libro">
                 <Icon type="question-circle-o" />
               </Tooltip>
             </span>
           )}
         >
 
-          <TextArea name="description" rows={4} onChange={this.handleChange}/>
+          <Input name="bookAuthor"  onChange={this.handleChange}/>
+        </Form.Item>
+
+        <Form.Item
+          {...formItemLayout}
+          label={(
+            <span>
+              Editorial&nbsp;
+                <Tooltip title="Ingresa el nombre de la Editorial del libro">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+          )}
+        >
+          <Input name="editorial"  onChange={this.handleChange}/>
+        </Form.Item>
+
+        <Form.Item
+          {...formItemLayout}
+          label={(
+            <span>
+              Edicion&nbsp;
+                <Tooltip title="Ingresa el numero de la Edicion del libro">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+          )}
+        >
+          <Input name="edition"  onChange={this.handleChange}/>
         </Form.Item>
 
         <Form.Item {...tailFormItemLayout}>

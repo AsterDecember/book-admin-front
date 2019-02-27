@@ -11,15 +11,25 @@ const columns = [{
     render: text => <a href="javascript:;">{text}</a>,
 },
 {
-    title: 'Nombre',
-    dataIndex: 'name',
-    key: 'name',
+    title: 'Titulo',
+    dataIndex: 'title',
+    key: 'title',
     render: text => <a href="javascript:;">{text}</a>,
 },
 {
-    title: 'Descripcion',
-    dataIndex: 'description',
-    key: 'description',
+    title: 'Autor',
+    dataIndex: 'bookAuthor',
+    key: 'bookAuthor',
+},
+{
+    title: 'Editorial',
+    dataIndex: 'editorial',
+    key: 'editorial',
+},
+{
+    title: 'Edicion',
+    dataIndex: 'edicion',
+    key: 'edicion',
 }, {
     title: 'Fecha',
     key: 'createdAt',
