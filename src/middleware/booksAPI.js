@@ -4,7 +4,7 @@ import axios from "axios";
  * Api books
  */
 
-const host = 'http://localhost:3000/books'
+const host = 'http://localhost:3000/api/books'
 
 export const getBooksAPI = () => {
     return axios.get(`${host}`)

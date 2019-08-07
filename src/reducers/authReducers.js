@@ -7,9 +7,9 @@ const authData = (state = {
 }, action) => {
     switch (action.type) {
         case FETCH_LOGIN_SAGA:
-            const   {data}  = action.payload
+            const   user =  action.payload
             //console.log('reducer saga',action.payload)
-            return { ...state,data}
+            return { ...state,user}
         default:
             return state
     }

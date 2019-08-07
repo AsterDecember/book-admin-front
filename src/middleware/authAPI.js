@@ -20,7 +20,9 @@ export const login = (info)=>{
             console.log('response middleware after api:',r)
             return r
         })
-        .catch(e=> e.response)
+        .catch(e=> {
+            console.log('qeberha?:',e.response)
+        })
 }
 
 

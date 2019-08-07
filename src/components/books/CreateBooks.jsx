@@ -27,7 +27,7 @@ class CreateBooks extends Component {
     e.preventDefault()
     console.log('ESTADO:',this.state.book)
     this.props.createBooksSaga(this.state.book)
-    this.printForm()
+    //this.printForm()
   }
   handleChange = (e)=>{
     const {book} = this.state
