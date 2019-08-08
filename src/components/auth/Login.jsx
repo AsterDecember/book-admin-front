@@ -40,7 +40,7 @@ class Login extends Component{
                         <Input
                             style={{marginBottom:'1rem'}}
                             name='email'
-                            placeholder="Enter your email"
+                            placeholder="Correo"
                             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             value={email}
                             onChange={this.handleChange}
@@ -49,7 +49,8 @@ class Login extends Component{
                         <Input.Password
                             style={{marginBottom:'1rem'}}
                             name='password'
-                            placeholder="Password"
+                            placeholder="Contraseña"
+                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             value={password}
                             onChange={this.handleChange}
                         />
