@@ -54,7 +54,7 @@ class Login extends Component{
                             value={password}
                             onChange={this.handleChange}
                         />
-                        <Button type="primary" htmlType="submit">Entrar!</Button>
+                        <Button type="primary" className="fcc-bg-color" htmlType="submit">Entrar!</Button>
                     </Form>
                 </Col>
             </Row>
