@@ -1,16 +1,17 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import Login from './components/auth/Login'
 import Home from './components/Home'
-import ListBooks from './components/books/ListBooks';
-import CreateBooks from './components/books/CreateBooks';
 const Routes = () => (
 
     <Switch>
-        <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
-        <Route exact path='/books' component={ListBooks} />
-        <Route exact path='/newBooks' component={CreateBooks} />
+        <PrivateRoute path='/home' component={Home} />
+        <Redirect to={{
+            pathname: "/home",
+            state: { from: 'NOT FOUND PAGE' },
+        }} />
     </Switch>
 );
 

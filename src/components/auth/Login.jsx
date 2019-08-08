@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Icon, Input, Button} from 'antd';
+import {Icon, Form, Input, Button, Row, Col} from 'antd';
 import {bindActionCreators} from "redux";
 import {getLoginSaga} from "../../actions/authActions";
 import {connect} from "react-redux";
@@ -19,7 +19,8 @@ class Login extends Component{
         this.setState({user})
     }
 
-    logIn = () =>{
+    logIn = (e) =>{
+        e.preventDefault();
         console.log('logIn')
         const {user} = this.state
         console.log(user)
@@ -32,25 +33,30 @@ class Login extends Component{
             console.log('loged')
         }
         return(
-            <div>
-                <Input
-                    style={{marginBottom:'1rem'}}
-                    name='email'
-                    placeholder="Enter your email"
-                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                    value={email}
-                    onChange={this.handleChange}
-                    ref={node => this.userNameInput = node}
-                />
-                <Input.Password
-                    style={{marginBottom:'1rem'}}
-                    name='password'
-                    placeholder="Password"
-                    value={password}
-                    onChange={this.handleChange}
-                />
-                <Button type="primary" onClick={this.logIn}>GO</Button>
-            </div>
+            <Row type="flex" justify="center" className="h-100 align-items-center">
+                <Col span={8}>
+                    <h1 className="fcc-color">FCC Biblioteca</h1>
+                    <Form onSubmit={this.logIn}>
+                        <Input
+                            style={{marginBottom:'1rem'}}
+                            name='email'
+                            placeholder="Enter your email"
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            value={email}
+                            onChange={this.handleChange}
+                            ref={node => this.userNameInput = node}
+                        />
+                        <Input.Password
+                            style={{marginBottom:'1rem'}}
+                            name='password'
+                            placeholder="Password"
+                            value={password}
+                            onChange={this.handleChange}
+                        />
+                        <Button type="primary" htmlType="submit">Entrar!</Button>
+                    </Form>
+                </Col>
+            </Row>
         )
     }
 

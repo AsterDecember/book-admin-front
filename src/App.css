@@ -1,3 +1,7 @@
+#root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
@@ -29,4 +33,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/*Color utilities*/
+.fcc-color {
+  color: #282c34 !important;
+}
+
+.fcc-bg-color {
+  background-color: #282c34 !important;
+}
+
+
+/*Height utilities*/
+.h-100 {
+  height: 100% !important;
+}
+
+/* Vertical align utilities */
+.align-items-center {
+  align-items: center !important;
 }
