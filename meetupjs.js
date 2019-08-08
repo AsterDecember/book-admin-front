@@ -20,4 +20,8 @@ program.version(require('../package.json').version)
 link simbolico con sudo npm lin para tener el comando disponible en el hambiente
 
 
+SEGUNDA PLATICA
+
+nest.js
+
  */
