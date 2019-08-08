@@ -10,41 +10,61 @@ const columns = [{
     key: '_id',
     render: text => <a href="javascript:;">{text}</a>,
 },
-{
-    title: 'Titulo',
-    dataIndex: 'title',
-    key: 'title',
-    render: text => <a href="javascript:;">{text}</a>,
-},
-{
-    title: 'Autor',
-    dataIndex: 'bookAuthor',
-    key: 'bookAuthor',
-},
-{
-    title: 'Editorial',
-    dataIndex: 'editorial',
-    key: 'editorial',
-},
-{
-    title: 'Edicion',
-    dataIndex: 'edicion',
-    key: 'edicion',
-}, {
-    title: 'Fecha',
-    key: 'createdAt',
-    dataIndex: 'createdAt',
-}, {
-    title: 'Accion',
-    key: 'action',
-    render: (text, record) => (
-        <span>
+    {
+        title: 'Titulo',
+        dataIndex: 'title',
+        key: 'title',
+        render: text => <a href="javascript:;">{text}</a>,
+    },
+    {
+        title: 'Autor',
+        dataIndex: 'bookAuthor',
+        key: 'bookAuthor',
+    },
+    {
+        title: 'Editorial',
+        dataIndex: 'editorial',
+        key: 'editorial',
+    },
+    {
+        title: 'Edicion',
+        dataIndex: 'edicion',
+        key: 'edicion',
+    }, {
+        title: 'Fecha',
+        key: 'createdAt',
+        dataIndex: 'createdAt',
+    },{
+        title: 'Matricula',
+        key: 'studentId',
+        dataIndex: 'studentId',
+    },{
+        title: 'NombreEstudiante',
+        key: 'studentName',
+        dataIndex: 'studentName',
+    },{
+        title: 'Carrera',
+        key: 'studentCareer',
+        dataIndex: 'studentCareer',
+    },{
+        title: 'Periodo',
+        key: 'period',
+        dataIndex: 'period',
+    },{
+        title: 'FechaDonacion',
+        key: 'donationDate',
+        dataIndex: 'donationDate',
+    },{
+        title: 'Accion',
+        key: 'action',
+        render: (text, record) => (
+            <span>
             <a href="javascript:;">Update</a>
             <Divider type="vertical" />
             <a href="javascript:;">Delete</a>
         </span>
-    ),
-}];
+        ),
+    }];
 class ListBooks extends Component {
     componentDidMount() {
         this.props.getBooksSaga()
